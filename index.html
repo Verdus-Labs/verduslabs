@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verdus Labs</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
-    <div>
-<a href="http://www.verduslabs.com"><h1>Verdus Labs</h1></a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <a href="http://www.verduslabs.com"><h1>Verdus Labs</h1></a>
 
-<h2>A research lab focused on precision agriculture</h2>
+      <h2>Giving grape growers omniscience.</h2>
+      <h3>
+        To get there, we are developing computer vision systems and robotics for
+        crop monitoring.
+      </h3>
+    </div>
+  </body>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: "Space Grotesk", sans-serif;
+    }
 
-<br />
+    .container {
+      max-width: 500px;
+      padding: 20px;
+      text-align: center;
+    }
 
-<p>
-    Imagine an intelligent system employing a sophisticated robotic arm to sow and nurture gardens with precision. The Verdus robotic assembly autonomously plants seeds, administers water, and supplements the soil with nutrients. It can add and remove plants at will, and it can even harvest the fruits of its labor. Verdus is a self-sustaining, self-governing, and self-learning system that can be deployed anywhere in the world.
-
-    <br />
-    <br />
-    
-    The vitality of these gardens is captured by cameras, providing a visual narrative of growth and facilitating adaptive learning. By entrusting the AI with decisive control, we entrust the very essence of cultivation, management, and growth to the hands of an intelligent, self-governing system.
-</p>
-<br />
-
-<br />
-
-<h3>To get there, we are developing a computer vision system for crop monitoring.</h3>
-<h3>See our open-source work <a href="https://github.com/Verdus-Labs">here</a></h3>
-
-
-</div>
-
-</body>
-<style>
     a {
-       font-style: bold; 
-       background-color: yellow;
-       font-size: 20px; /* Sets the font size of all <h3> elements to 20px */
-       color: black;
-       font-weight: 500;
+      font-style: bold;
+      background-color: yellow;
+      font-size: 20px;
+      color: black;
+      font-weight: 500;
+      text-decoration: none;
     }
 
     h3 {
-        color: black; /* Changes the text color of all <h3> elements to blue */
-        font-size: 20px; /* Sets the font size of all <h3> elements to 20px */
-        font-weight: 500;
+      color: black; /* gray-500 color */
+      font-size: 20px;
+      font-weight: 300;
+      font-family: "Space Grotesk", sans-serif;
     }
-</style>
+    h2 {
+      color: black; /* gray-500 color */
+      font-size: 20px;
+      font-weight: 500;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    h1 {
+      color: black;
+      font-size: 30px;
+      font-weight: 500;
+      font-family: "Space Grotesk", sans-serif;
+    }
+  </style>
 </html>

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
 
@@ -62,7 +63,7 @@ export default function Home() {
       <header className="bg-white/75 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/verdusnew.png"
                 alt="Verdus logo"
@@ -70,7 +71,7 @@ export default function Home() {
                 height={120}
                 className="dark:invert"
               />
-            </a>
+            </Link>
             <nav className="hidden md:flex space-x-8 font-medium">
               <a
                 href="#mission"
@@ -128,7 +129,7 @@ export default function Home() {
                 Know Your Fields<br />Like Never Before
               </h1>
               <p className="text-lg text-white/80 dark:text-white/90 max-w-2xl font-medium">
-              Imagine if every vine could speak — telling you when it's thirsty, stressed, or under attack. With our technology, the vineyard becomes a living, breathing system you can see, understand, and optimize in real time.
+              Imagine if every vine could speak — telling you when it&apos;s thirsty, stressed, or under attack. With our technology, the vineyard becomes a living, breathing system you can see, understand, and optimize in real time.
               </p>
               <Button
                 asChild
@@ -160,7 +161,7 @@ export default function Home() {
             </div>
             <div className="space-y-6">
               <p className="text-lg text-gray-800 leading-relaxed">
-                For generations, farming has been about hard work, experience, and a little bit of faith. We're making farmers omniscient—knowing every vine, every acre, every decision.
+                For generations, farming has been about hard work, experience, and a little bit of faith. We&apos;re making farmers omniscient—knowing every vine, every acre, every decision.
               </p>
             </div>
           </div>
@@ -299,12 +300,12 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-[#2F473A] mb-8 w-3/4">
-              See what your farm's been hiding.
+              See what your farm&apos;s been hiding.
               </h2>
             </div>
             <div className="space-y-6">
               <p className="text-lg text-gray-800 leading-relaxed">
-                For generations, growers have relied on experience and hard work. Now, it's time to put data to work for your operation.
+                For generations, growers have relied on experience and hard work. Now, it&apos;s time to put data to work for your operation.
               </p>
 
                 <Button

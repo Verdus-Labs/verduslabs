@@ -253,43 +253,43 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {/* High-Res Sensing */}
               <div 
-                className={`backdrop-blur-sm p-4 sm:p-6 transition-colors cursor-pointer ${
+                className={`backdrop-blur-sm p-4 sm:px-6 sm:py-2 transition-colors cursor-pointer h-14 flex items-center justify-center ${
                   activeTech === 'sensing' 
                     ? 'bg-[#2F473A] hover:bg-[#223428]' 
                     : 'bg-black/40 hover:bg-black/60'
                 }`}
                 onClick={() => setActiveTech('sensing')}
               >
-                <div className="text-center">
-                  <h3 className="text-sm sm:text-lg font-medium text-white mb-2">High-Res Sensing</h3>
+                <div className="text-center w-full">
+                  <h3 className="text-sm sm:text-lg font-medium text-white mb-0">High-Res Sensing</h3>
                 </div>
               </div>
 
               {/* Real-Time Insights */}
               <div 
-                className={`backdrop-blur-sm p-4 sm:p-6 transition-colors cursor-pointer ${
+                className={`backdrop-blur-sm p-4 sm:px-6 sm:py-2 transition-colors cursor-pointer h-14 flex items-center justify-center ${
                   activeTech === 'insights' 
                     ? 'bg-[#2F473A] hover:bg-[#223428]' 
                     : 'bg-black/40 hover:bg-black/60'
                 }`}
                 onClick={() => setActiveTech('insights')}
               >
-                <div className="text-center">
-                  <h3 className="text-sm sm:text-lg font-medium text-white mb-2">Real-Time Insights</h3>
+                <div className="text-center w-full">
+                  <h3 className="text-sm sm:text-lg font-medium text-white mb-0">Real-Time Insights</h3>
                 </div>
               </div>
 
               {/* Actionable Intelligence */}
               <div 
-                className={`backdrop-blur-sm p-4 sm:p-6 transition-colors cursor-pointer ${
+                className={`backdrop-blur-sm p-4 sm:px-6 sm:py-2 transition-colors cursor-pointer h-14 flex items-center justify-center ${
                   activeTech === 'intelligence' 
                     ? 'bg-[#2F473A] hover:bg-[#223428]' 
                     : 'bg-black/40 hover:bg-black/60'
                 }`}
                 onClick={() => setActiveTech('intelligence')}
               >
-                <div className="text-center">
-                  <h3 className="text-sm sm:text-lg font-medium text-white mb-2">Actionable Intelligence</h3>
+                <div className="text-center w-full">
+                  <h3 className="text-sm sm:text-lg font-medium text-white mb-0">Actionable Intelligence</h3>
                 </div>
               </div>
             </div>

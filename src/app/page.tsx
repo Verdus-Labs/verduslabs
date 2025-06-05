@@ -161,7 +161,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Palisades-Canyon-Vineyard-intro_image_img_1-19042-large.jpg"
+            src="/trent-erwin-sj4M_cwUGB0-unsplash.jpg"
             alt="Vineyard landscape"
             fill
             priority

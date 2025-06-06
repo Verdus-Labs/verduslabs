@@ -415,7 +415,7 @@ export default function Home() {
               </a>
             </div>
             <div className="text-gray-600 font-mono text-sm sm:text-base text-center md:text-right">
-              © 2025 Verdus. All rights reserved.
+              © 2025 Verdus Labs. All rights reserved.
             </div>
           </div>
         </div>

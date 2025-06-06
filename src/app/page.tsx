@@ -2,7 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 type TechKey = 'sensing' | 'insights' | 'intelligence';
 
@@ -57,6 +62,101 @@ export default function Home() {
       image: "/om.png"
     }
   ];
+
+  useEffect(() => {
+    // Hero animations
+    gsap.from(".hero-title", {
+      duration: 0.5,
+      y: 30,
+      autoAlpha: 0,
+      stagger: 0.05
+    });
+
+    gsap.from(".hero-subtitle", {
+      duration: 0.5,
+      y: 10,
+      autoAlpha: 0,
+      delay: 0.1
+    });
+
+    // Mission section animations
+    gsap.from(".mission-heading", {
+      duration: 0.6,
+      y: 30,
+      autoAlpha: 0,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: ".mission-heading",
+        start: "top 80%"
+      }
+    });
+
+    gsap.from(".mission-text", {
+      duration: 0.5,
+      y: 20,
+      autoAlpha: 0,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: ".mission-text",
+        start: "top 80%"
+      }
+    });
+
+    // Technology section animations
+    gsap.from(".tech-content", {
+      duration: 0.5,
+      y: 20,
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: ".tech-content",
+        start: "top 80%"
+      }
+    });
+
+    // Team section animations
+    gsap.from(".team-heading", {
+      duration: 0.6,
+      y: 30,
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: ".team-heading",
+        start: "top 80%"
+      }
+    });
+
+    gsap.from(".team-text", {
+      duration: 0.5,
+      y: 20,
+      autoAlpha: 0,
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: ".team-text",
+        start: "top 80%"
+      }
+    });
+
+    // Contact section animations
+    gsap.from(".contact-heading", {
+      duration: 0.6,
+      y: 30,
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: ".contact-heading",
+        start: "top 80%"
+      }
+    });
+
+    gsap.from(".contact-text", {
+      duration: 0.5,
+      y: 20,
+      autoAlpha: 0,
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: ".contact-text",
+        start: "top 80%"
+      }
+    });
+  }, []);
 
   return (
     <div className="font-[family-name:var(--font-aktiv-grotesk)]">
@@ -179,10 +279,10 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col gap-4 sm:gap-[22px] items-center sm:items-start">
             <div className="text-center sm:text-left">
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-medium tracking-tight mb-4 text-white leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-medium tracking-tight mb-4 text-white leading-tight hero-title">
                 Know Your Fields<br />Like Never Before
               </h1>
-              <p className="text-base sm:text-lg text-white/80 dark:text-white/90 max-w-2xl font-medium leading-relaxed">
+              <p className="text-base sm:text-lg text-white/80 dark:text-white/90 max-w-2xl font-medium leading-relaxed hero-subtitle">
               Imagine if every vine could speak — telling you when it&apos;s thirsty, stressed, or under attack. With our technology, the vineyard becomes a living, breathing system you can see, understand, and optimize in real time.
               </p>
               <Button
@@ -209,12 +309,12 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-sm font-medium text-gray-800 mb-4 tracking-wide uppercase">Our Mission</p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 mission-heading">
                 Making agriculture computable.
               </h2>
             </div>
             <div className="space-y-6">
-              <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-800 leading-relaxed mission-text">
                 For generations, farming has been about hard work, experience, and a little bit of faith. We&apos;re making farmers omniscient—knowing every vine, every acre, every decision.
               </p>
             </div>
@@ -227,7 +327,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left side - Technology description */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 tech-content">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono text-[#2F473A] mb-4">
                 {technologies[activeTech].title}
               </h2>
@@ -302,10 +402,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#2F473A] mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#2F473A] mb-4 sm:mb-6 team-heading">
                 About Us
               </h2>
-              <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-800 leading-relaxed team-text">
                 Verdus Labs is a three-person company based in Ithaca, New York.<br className="hidden sm:block" />
                 We are building hardware and software to make farmers omniscient.
               </p>
@@ -353,12 +453,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 w-full lg:w-3/4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 w-full lg:w-3/4 contact-heading">
               See what your farm&apos;s been hiding.
               </h2>
             </div>
             <div className="space-y-6">
-              <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-800 leading-relaxed contact-text">
                 For generations, growers have relied on experience and hard work. Now, it&apos;s time to put data to work for your operation.
               </p>
 

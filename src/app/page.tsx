@@ -513,6 +513,22 @@ export default function Home() {
               >
                 Team
               </a>
+              <a
+                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base italic"
+                href="https://www.linkedin.com/company/verduslabs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base italic"
+                href="https://github.com/Verdus-Labs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </div>
             <div className="text-gray-600 font-mono text-sm sm:text-base text-center md:text-right">
               © 2025 Verdus Labs. All rights reserved.

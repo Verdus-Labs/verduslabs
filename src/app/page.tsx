@@ -30,7 +30,7 @@ export default function Home() {
   const technologies: Record<TechKey, Technology> = {
     sensing: {
       title: "High-Res Sensing",
-      description: "Our drones fly over vineyards and watch for problems like disease, stress, or poor vine health. Growers get a clear picture of their whole field, all season long.",
+      description: "Our drones fly through vineyards and watch for problems like disease, stress, or poor vine health. Growers get a clear picture of their whole field, all season long.",
       image: "/drone2.png"
     },
     insights: {

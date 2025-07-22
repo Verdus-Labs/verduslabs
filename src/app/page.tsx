@@ -9,13 +9,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-type TechKey = 'sensing' | 'insights' | 'intelligence';
+// type TechKey = 'sensing' | 'insights' | 'intelligence';
 
-interface Technology {
-  title: string;
-  description: string;
-  image: string;
-}
+// interface Technology {
+//   title: string;
+//   description: string;
+//   image: string;
+// }
 
 interface TeamMember {
   name: string;
@@ -24,26 +24,26 @@ interface TeamMember {
 }
 
 export default function Home() {
-  const [activeTech, setActiveTech] = useState<TechKey>('sensing');
+  // const [activeTech, setActiveTech] = useState<TechKey>('sensing');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const technologies: Record<TechKey, Technology> = {
-    sensing: {
-      title: "High-Res Sensing",
-      description: "Our drones fly through vineyards and watch for problems like disease, stress, or poor vine health. Growers get a clear picture of their whole field, all season long.",
-      image: "/drone2.png"
-    },
-    insights: {
-      title: "Real-Time Insights", 
-      description: "Our live monitoring systems provide instant alerts and real-time data on the field. Growers see crop conditions, weather, and changes as they happen—so they can respond right away.",
-      image: "/heatmap.png"
-    },
-    intelligence: {
-      title: "Actionable Intelligence",
-      description: "Our software platform uses farm data to make predictions and recommendations. We build up an self-improving model of the field and use it to inform decisions.",
-      image: "/grapes.png"
-    }
-  };
+  // const technologies: Record<TechKey, Technology> = {
+  //   sensing: {
+  //     title: "High-Res Sensing",
+  //     description: "Our drones fly through vineyards and watch for problems like disease, stress, or poor vine health. Growers get a clear picture of their whole field, all season long.",
+  //     image: "/drone2.png"
+  //   },
+  //   insights: {
+  //     title: "Real-Time Insights", 
+  //     description: "Our live monitoring systems provide instant alerts and real-time data on the field. Growers see crop conditions, weather, and changes as they happen—so they can respond right away.",
+  //     image: "/heatmap.png"
+  //   },
+  //   intelligence: {
+  //     title: "Actionable Intelligence",
+  //     description: "Our software platform uses farm data to make predictions and recommendations. We build up an self-improving model of the field and use it to inform decisions.",
+  //     image: "/grapes.png"
+  //   }
+  // };
 
   const teamMembers: TeamMember[] = [
     {

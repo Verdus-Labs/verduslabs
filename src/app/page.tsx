@@ -182,12 +182,12 @@ export default function Home() {
               >
                 Mission
               </a>
-              <a
+              {/* <a
                 href="#technology"
                 className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
               >
                 Technology
-              </a>
+              </a> */}
               <a
                 href="#team"
                 className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
@@ -229,13 +229,13 @@ export default function Home() {
                 >
                   Mission
                 </a>
-                <a
+                {/* <a
                   href="#technology"
                   className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium px-2 py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Technology
-                </a>
+                </a> */}
                 <a
                   href="#team"
                   className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium px-2 py-1"
@@ -420,12 +420,12 @@ export default function Home() {
               >
                 Mission
               </a>
-              <a
+              {/* <a
                 className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
                 href="#technology"
               >
                 Technology
-              </a>
+              </a> */}
               <a
                 className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
                 href="#contact"

@@ -283,7 +283,7 @@ export default function Home() {
                 Turn Farm Data<br />into Decisions
               </h1>
               <p className="text-base sm:text-lg text-white/80 dark:text-white/90 max-w-2xl font-medium leading-relaxed hero-subtitle">
-              Crops aren&apos;t silent. They signal stress, thirst, disease (if you know how to listen). With our technology, turn your exisiting farm data into operational action.
+              Crops aren&apos;t silent. They signal stress, thirst, disease (if you know how to listen). With our technology, turn your existing farm data into operational action.
               </p>
               <Button
                 asChild
@@ -384,7 +384,7 @@ export default function Home() {
             </div>
             <div className="space-y-6">
               <p className="text-base sm:text-lg text-gray-800 leading-relaxed contact-text">
-                Chat with us to learn more about our technology and how it can help your farm.
+                Learn more about our technology and how it can turn your farm data into operational action.
               </p>
 
                 <Button

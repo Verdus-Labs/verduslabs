@@ -2,18 +2,17 @@
 
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 // Weather data with temperature, humidity, and dewpoint
 // Generate stochastic hourly weather data for a single day (2024-01-01) in Fahrenheit
 function generateStochasticWeatherDataForDayF(dateStr: string) {
   const data = []
   // Base values for the day (Celsius)
-  let baseTempC = 18 + Math.random() * 4 // 18-22°C at midnight
-  let baseHumidity = 60 + Math.random() * 10 // 60-70% at midnight
-  let baseDewC = baseTempC - (3 + Math.random() * 2) // dewpoint a few degrees below temp
+  const baseTempC = 18 + Math.random() * 4 // 18-22°C at midnight
+  const baseHumidity = 60 + Math.random() * 10 // 60-70% at midnight
+  const baseDewC = baseTempC - (3 + Math.random() * 2) // dewpoint a few degrees below temp
 
   for (let hour = 0; hour < 24; hour++) {
     // Simulate a diurnal temperature curve (warmer in afternoon, cooler at night)
@@ -69,7 +68,7 @@ const weatherConfig = {
 } satisfies ChartConfig
 
 export function WeatherChart() {
-  const [timeRange, setTimeRange] = React.useState("30d")
+  const [timeRange] = React.useState("30d") // setTimeRange is unused, so omit
 
   const filteredData = weatherData.filter((item) => {
     const date = new Date(item.date)

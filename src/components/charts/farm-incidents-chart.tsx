@@ -1,11 +1,9 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -82,15 +80,21 @@ const soilMoistureConfig: ChartConfig = {
 
 // Merge all block data into a single array for the LineChart
 // Each data point will have hour and a moisture value for each block
-const mergedData: Array<{ hour: string } & Record<string, number>> = (() => {
+type MergedDataEntry = {
+  hour: string
+} & {
+  [blockName: string]: number | string | null
+}
+
+const mergedData: MergedDataEntry[] = (() => {
   // Assume all blocks have the same hours
   const hours = blocks[0].data.map((d) => d.hour)
   return hours.map((hour, idx) => {
-    const entry: { hour: string } & Record<string, number> = { hour }
+    const entry: { [blockName: string]: number | string | null } = { hour }
     blocks.forEach((block) => {
       entry[block.name] = block.data[idx]?.moisture ?? null
     })
-    return entry
+    return entry as MergedDataEntry
   })
 })()
 

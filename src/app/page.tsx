@@ -2,13 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { WeatherChart, NDVIMap, BrixChart, FarmIncidentsChart } from "@/components/charts";
+import { WeatherChart, NDVIMap, FarmIncidentsChart } from "@/components/charts";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 

@@ -11,32 +11,8 @@ import { WeatherChart, NDVIMap, FarmIncidentsChart } from "@/components/charts";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-interface TeamMember {
-  name: string;
-  description: string;
-  image?: string;
-}
-
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const teamMembers: TeamMember[] = [
-    {
-      name: "Rishi Gurjar",
-      description: "Rishi studies ecology and CS at Cornell.",
-      image: "/rishi.png"
-    },
-    {
-      name: "Yotam Dubiner",
-      description: "Yotam studies CS and crop science at UIUC.",
-      image: "/yotam.png"
-    },
-    {
-      name: "Om Kamat", 
-      description: "Om studies aerospace engineering at UIUC.",
-      image: "/om.png"
-    }
-  ];
 
   useEffect(() => {
     // Hero animations

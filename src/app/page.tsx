@@ -159,12 +159,6 @@ export default function Home() {
                 MISSION
               </a>
               <a
-                href="#team"
-                className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
-              >
-                TEAM
-              </a>
-              <a
                 href="#contact"
                 className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
               >
@@ -269,6 +263,28 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Mission Section */}
+      <section id="mission" className="bg-gray-0 py-16 sm:py-20 lg:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 text-sm font-medium">
+                Our Mission
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 mission-heading">
+                Making agriculture computable.
+              </h2>
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700 leading-relaxed mission-text">
+                For generations, farming has been about hard work, experience, and a little bit of faith. We&apos;re changing that by making farm data actionable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Analytics Dashboard Section */}
       <section id="analytics" className="bg-gray-50 py-16 sm:py-20 lg:py-10 charts-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -354,78 +370,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section id="mission" className="bg-gray-0 py-16 sm:py-20 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            <div>
-              <Badge variant="outline" className="mb-4 text-sm font-medium">
-                Our Mission
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 mission-heading">
-                Making agriculture computable.
-              </h2>
-            </div>
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed mission-text">
-                For generations, farming has been about hard work, experience, and a little bit of faith. We&apos;re changing that by making farm data actionable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className="bg-gray-50 py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
-            <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#2F473A] mb-4 sm:mb-6 team-heading">
-                About Us
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed team-text">
-                Verdus Labs is a three-person company based in Ithaca, New York.<br className="hidden sm:block" />
-                We are building hardware and software to make farmers omniscient through data analytics.
-              </p>
-            </div>
-
-            <div className="flex justify-center lg:justify-end">
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 w-fit">
-                {teamMembers.map((member, index) => (
-                  <div key={index} className="group relative overflow-hidden aspect-square w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                    <div className="relative w-full h-full bg-gray-200 flex items-center justify-center">
-                      {member.image ? (
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="text-center text-gray-400">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-1 bg-gray-300 flex items-center justify-center">
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                          </div>
-                          <p className="text-xs">{member.name}</p>
-                        </div>
-                      )}
-                    </div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-[#2F473A]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-center text-white p-1 sm:p-2">
-                        <h3 className="text-xs sm:text-sm font-medium mb-1">{member.name}</h3>
-                        <p className="text-xs text-white/70 leading-tight">{member.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="bg-gray-0 py-16 sm:py-20 lg:py-24">
@@ -473,12 +417,6 @@ export default function Home() {
                 href="#mission"
               >
                 Mission
-              </a>
-              <a
-                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
-                href="#team"
-              >
-                Team
               </a>
               <a
                 className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"

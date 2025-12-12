@@ -2,12 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { WeatherChart, NDVIMap, FarmIncidentsChart } from "@/components/charts";
+// import { WeatherChart, NDVIMap, FarmIncidentsChart } from "@/components/charts";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -127,7 +127,7 @@ export default function Home() {
             </Link>
             
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8 text-sm font-mono">
+            {/* <nav className="hidden md:flex space-x-8 text-sm font-mono">
               <a
                 href="#mission"
                 className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
@@ -140,10 +140,10 @@ export default function Home() {
               >
                 CONTACT
               </a>
-            </nav>
+            </nav> */}
 
             {/* Mobile menu button */}
-            <button
+            {/* <button
               className="md:hidden p-2 rounded-md text-gray-600 hover:text-[#2F473A] hover:bg-gray-100 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
@@ -155,7 +155,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Navigation Menu */}
@@ -194,7 +194,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/trent-erwin-sj4M_cwUGB0-unsplash.jpg"
+            src="/dan-meyers-0AgtPoAARtE-unsplash.jpg"
             alt="Vineyard landscape"
             fill
             priority
@@ -204,7 +204,7 @@ export default function Home() {
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 65%)"
+              background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 99%)"
             }}
           ></div>
         </div>
@@ -212,13 +212,10 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-medium tracking-tight mb-2 text-white leading-tight hero-title">
-              Turn farm data<br />into decisions
+              It&apos;s what you<br />can&apos;t see that&apos;s<br />costing you money
             </h1>
-            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed hero-subtitle">
-              Use existing data to make smarter decisions
-            </p>
-            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed hero-subtitle mb-8">
-              and get the most from your crews.
+            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-normal leading-relaxed hero-subtitle mb-8">
+              We make mission-ready hardware and software for farmers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -245,24 +242,42 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div>
-              <Badge variant="outline" className="mb-4 text-sm font-medium">
-                Our Mission
-              </Badge>
+              <div className="mb-4 text-sm font-mono font-medium uppercase tracking-wider">
+                OUR MISSION
+              </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 mission-heading">
-                Making agriculture computable.
+                Making farmers omniscient.
               </h2>
             </div>
             <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed mission-text">
-                For generations, farming has been about hard work, experience, and a little bit of faith. We&apos;re changing that by making farm data actionable.
+              <p className="text-lg text-gray-900 leading-relaxed mission-text font-normal">
+                For generations, farming has been about hard work, experience, and a little bit of faith. Now there&apos;s something better.
+                <br /><br />We turn every block into clear, high-resolution insight and crew action. Get more work done, in less time.
               </p>
+
+              <Button
+                asChild
+                variant="secondary"
+                className="gap-2 rounded-none bg-[#2F473A] hover:bg-[#223428] text-white border-[#2F473A] w-full sm:w-auto"
+              >
+                <a
+                  href="https://cal.com/verdus/learn-more"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get in touch
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Analytics Dashboard Section */}
-      <section id="analytics" className="bg-gray-50 py-16 sm:py-20 lg:py-10 charts-section">
+      {/* <section id="analytics" className="bg-gray-50 py-16 sm:py-20 lg:py-10 charts-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -313,7 +328,6 @@ export default function Home() {
 
           </div>
 
-          {/* Mobile content - text only */}
           <div className="block md:hidden space-y-8">
             <div className="text-center">
               <h2 className="text-2xl font-medium tracking-tight text-[#2F473A] mb-4">
@@ -344,27 +358,23 @@ export default function Home() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
 
       {/* Contact Section */}
-      <section id="contact" className="bg-gray-0 py-16 sm:py-20 lg:py-24">
+      {/* <section id="contact" className="bg-[#2F473A] py-3 sm:py-3 lg:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 w-full lg:w-3/4 contact-heading">
+              <h2 className="text-3xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-white mb-6 sm:mb-8 w-full lg:w-3/4 contact-heading">
                 See what your farm&apos;s been hiding.
               </h2>
             </div>
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed contact-text">
-                Learn more about how the Verdus platform can turn your farm data into operational action.
-              </p>
-
+            <div className="">
               <Button
                 asChild
                 variant="secondary"
-                className="gap-2 rounded-none bg-[#2F473A] hover:bg-[#223428] text-white border-[#2F473A] w-full sm:w-auto"
+                className="gap-2 rounded-none bg-white hover:bg-gray-100 text-[#2F473A] border-white w-full sm:w-auto"
               >
                 <a
                   href="https://cal.com/verdus/learn-more"
@@ -381,14 +391,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 py-6 sm:py-8 font-[family-name:var(--font-aktiv-grotesk)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
             <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-8">
-              <a
+              {/* <a
                 className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
                 href="#mission"
               >
@@ -399,7 +409,7 @@ export default function Home() {
                 href="#contact"
               >
                 Contact
-              </a>
+              </a> */}
 
               <a
                 className="text-gray-600 hover:text-gray-900 transition-colors"

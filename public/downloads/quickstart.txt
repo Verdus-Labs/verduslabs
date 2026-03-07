@@ -1,0 +1,46 @@
+sudo apt update
+sudo apt install curl gnupg -y
+Brave browser
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
+https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=arm64] \
+https://brave-browser-apt-release.s3.brave.com/ stable main" | \
+sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+Nano text editor
+sudo apt install nano -y
+Pip
+sudo apt install python3-pip -y
+GPIO test
+Follow this tutorial https://www.youtube.com/watch?v=a8espzPAzu4&t=91s
+When installing jetson-containers
+https://github.com/dusty-nv/jetson-containers/blob/master/docs/setup.md
+Change the default-runtime to 'nvidia' - instructions in the repo
+
+DOCKER setup
+Make persistent container
+docker run -it \
+  --name sam2 \
+  --restart unless-stopped \
+  --runtime nvidia \
+  --network host \
+  --shm-size=8g \
+  transformers:5.2.0-r36.4.tegra-aarch64-cu126-22.04-onnx \
+  bash
+
+Bring container back
+docker start -ai sam2
+
+Start container
+docker exec -it sam2 bash
+
+stop/delete
+docker stop/rm <image name>
+
+Run jupyter notebook
+Jupyter notebook –allow-root (in the directory)
+
+See docker images
+Docker images
+
+Open container for given image
+docker run -it <repository_name from above command>:latest

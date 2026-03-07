@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 const script = `#!/usr/bin/env bash
 set -euo pipefail
 

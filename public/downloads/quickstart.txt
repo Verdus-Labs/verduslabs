@@ -51,3 +51,6 @@ Docker images
 
 Open container for given image
 docker run -it <repository_name from above command>:latest
+
+Run OAK Camera
+follow https://docs.luxonis.com/hardware/platform/deploy/to-jetson/

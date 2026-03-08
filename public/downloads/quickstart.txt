@@ -1,29 +1,114 @@
 sudo apt update
 sudo apt install curl gnupg -y
-Brave browser
 
+## Brave browser
 sudo apt install curl
-
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-
 sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
-
 sudo apt update
-
 sudo apt install brave-browser
 
-
-Nano text editor
+## Nano text editor
 sudo apt install nano -y
-Pip
+
+## Pip
 sudo apt install python3-pip -y
-GPIO test
-Follow this tutorial https://www.youtube.com/watch?v=a8espzPAzu4&t=91s
-When installing jetson-containers
+
+## Run Intel Realsense 
+? https://github.com/realsenseai/librealsense/blob/master/doc/installation_jetson.md
+
+## Run OAK Camera (https://docs.luxonis.com/hardware/platform/deploy/to-jetson/)
+sudo apt update && sudo apt upgrade
+sudo reboot now
+# Disable ZRAM:
+sudo systemctl disable nvzramconfig
+# Create 4GB swap file
+sudo fallocate -l 4G /mnt/4GB.swap
+sudo chmod 600 /mnt/4GB.swap
+sudo mkswap /mnt/4GB.swap
+sudo vi /etc/fstab
+# Add this line at the bottom of the file
+/mnt/4GB.swap swap swap defaults 0 0
+# Reboot
+sudo reboot now
+sudo wget -qO- https://docs.luxonis.com/install_dependencies.sh | bash
+sudo apt install python3-venv
+python3 -m venv depthai
+source depthai/bin/activate
+#Clone github repository
+git clone https://github.com/luxonis/depthai-python.git
+cd depthai-python
+python3 examples/install_requirements.py
+
+## Setup sshd
+sudo apt update
+sudo apt install openssh-server
+sudo systemctl status sshd # or sudo systemctl status ssh
+# enable/start if necessary sudo systemctl enable --now sshd # or sudo systemctl enable --now ssh
+hostname -I #get ip address
+Connect to it: ssh username@server_ip_address
+
+## Set up Github (after adding ssh pub key to github account)
+cd Desktop
+git clone git@github.com:Verdus-Labs/recording_demo.git
+
+## GPIO setup for pin 29 in, pin 31 32 33 out
+/dts-v1/;
+/plugin/;
+
+/ {
+    jetson-header-name = "Jetson 40pin Header";
+    overlay-name = "29in313233out";
+    compatible = "nvidia,p3768-0000+p3767-0005-super",
+                 "nvidia,p3767-0005",
+                 "nvidia,tegra234";
+
+    fragment@0 {
+        target = <&pinmux>;
+
+        __overlay__ {
+            pinctrl-names = "default";
+            pinctrl-0 = <&jetson_io_pinmux>;
+
+            jetson_io_pinmux: exp-header-pinmux {
+                hdr40-pin31 {
+                    nvidia,pins = "soc_gpio33_pq6";
+                    nvidia,tristate = <0x0>;        // output (driven)
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x0>;            
+                };
+
+                hdr40-pin29 {
+                    nvidia,pins = "soc_gpio32_pq5";
+                    nvidia,tristate = <0x1>;        // input (Hi-Z)
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x2>;
+                };
+
+                hdr40-pin32 {
+                    nvidia,pins = "soc_gpio12_pb4";
+                    nvidia,tristate = <0x0>;        // output (driven)
+                    nvidia,enable-input = <0x0>;
+                    nvidia,pull = <0x0>;            // no pull for output
+                };
+
+                hdr40-pin33 {
+                    nvidia,pins = "soc_gpio13_pb5";
+                    nvidia,tristate = <0x0>;        // output (driven)
+                    nvidia,enable-input = <0x0>;
+                    nvidia,pull = <0x0>;            // no pull for output
+                };
+            };
+        };
+    };
+};
+
+
+## When installing jetson-containers
 https://github.com/dusty-nv/jetson-containers/blob/master/docs/setup.md
 Change the default-runtime to 'nvidia' - instructions in the repo
 
-DOCKER setup
+## DOCKER setup
 Make persistent container
 docker run -it \
   --name sam2 \
@@ -51,6 +136,3 @@ Docker images
 
 Open container for given image
 docker run -it <repository_name from above command>:latest
-
-Run OAK Camera
-follow https://docs.luxonis.com/hardware/platform/deploy/to-jetson/

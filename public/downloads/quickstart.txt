@@ -52,56 +52,13 @@ Connect to it: ssh username@server_ip_address
 cd Desktop
 git clone git@github.com:Verdus-Labs/recording_demo.git
 
-## GPIO setup for pin 29 in, pin 31 32 33 out
-/dts-v1/;
-/plugin/;
-
-/ {
-    jetson-header-name = "Jetson 40pin Header";
-    overlay-name = "29in313233out";
-    compatible = "nvidia,p3768-0000+p3767-0005-super",
-                 "nvidia,p3767-0005",
-                 "nvidia,tegra234";
-
-    fragment@0 {
-        target = <&pinmux>;
-
-        __overlay__ {
-            pinctrl-names = "default";
-            pinctrl-0 = <&jetson_io_pinmux>;
-
-            jetson_io_pinmux: exp-header-pinmux {
-                hdr40-pin31 {
-                    nvidia,pins = "soc_gpio33_pq6";
-                    nvidia,tristate = <0x0>;        // output (driven)
-                    nvidia,enable-input = <0x1>;
-                    nvidia,pull = <0x0>;            
-                };
-
-                hdr40-pin29 {
-                    nvidia,pins = "soc_gpio32_pq5";
-                    nvidia,tristate = <0x1>;        // input (Hi-Z)
-                    nvidia,enable-input = <0x1>;
-                    nvidia,pull = <0x2>;
-                };
-
-                hdr40-pin32 {
-                    nvidia,pins = "soc_gpio12_pb4";
-                    nvidia,tristate = <0x0>;        // output (driven)
-                    nvidia,enable-input = <0x0>;
-                    nvidia,pull = <0x0>;            // no pull for output
-                };
-
-                hdr40-pin33 {
-                    nvidia,pins = "soc_gpio13_pb5";
-                    nvidia,tristate = <0x0>;        // output (driven)
-                    nvidia,enable-input = <0x0>;
-                    nvidia,pull = <0x0>;            // no pull for output
-                };
-            };
-        };
-    };
-};
+## GPIO setup
+1. recording_demo has 29in313233out.dts
+run:
+dtc -@ -I dts -O dtb -o pin7_pin31_as_gpio.dtbo pin7_pin31_as_gpio.dts
+sudo cp pin7_pin31_as_gpio.dtbo /boot/
+sync
+sudo /opt/nvidia/jetson-io/jetson-io.py
 
 
 ## When installing jetson-containers

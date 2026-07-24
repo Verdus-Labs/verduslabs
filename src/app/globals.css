@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-aktiv-grotesk);
   --font-mono: var(--font-geist-mono);
+  --font-pt-serif: "PT Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,14 +120,6 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer base {
-  /* Force the hero headline to match the screenshot style */
-  .hero-title {
-    font-family: "PT Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-weight: 700 !important;
   }
 }
 

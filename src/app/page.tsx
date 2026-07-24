@@ -1,460 +1,154 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button"
-// import { Badge } from "@/components/ui/badge"
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { WeatherChart, NDVIMap, FarmIncidentsChart } from "@/components/charts";
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   useEffect(() => {
-    // Hero animations
-    gsap.from(".hero-title", {
-      duration: 0.5,
-      y: 30,
-      autoAlpha: 0,
-      stagger: 0.05
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(".hero-logo", { y: 20, autoAlpha: 0, duration: 0.55 })
+        .from(".hero-line", { y: 28, autoAlpha: 0, duration: 0.75 }, "-=0.25")
+        .from(".hero-cta", { y: 16, autoAlpha: 0, duration: 0.5 }, "-=0.3")
+        .from(".site-footer", { y: 10, autoAlpha: 0, duration: 0.45 }, "-=0.15");
     });
 
-    gsap.from(".hero-subtitle", {
-      duration: 0.5,
-      y: 10,
-      autoAlpha: 0,
-      delay: 0.1
-    });
-
-    // Charts section animations
-    gsap.from(".chart-card", {
-      duration: 0.6,
-      y: 30,
-      autoAlpha: 0,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: ".charts-section",
-        start: "top 80%"
-      }
-    });
-
-    // Mission section animations
-    gsap.from(".mission-heading", {
-      duration: 0.6,
-      y: 30,
-      autoAlpha: 0,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: ".mission-heading",
-        start: "top 80%"
-      }
-    });
-
-    gsap.from(".mission-text", {
-      duration: 0.5,
-      y: 20,
-      autoAlpha: 0,
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: ".mission-text",
-        start: "top 80%"
-      }
-    });
-
-    // Team section animations
-    gsap.from(".team-heading", {
-      duration: 0.6,
-      y: 30,
-      autoAlpha: 0,
-      scrollTrigger: {
-        trigger: ".team-heading",
-        start: "top 80%"
-      }
-    });
-
-    gsap.from(".team-text", {
-      duration: 0.5,
-      y: 20,
-      autoAlpha: 0,
-      delay: 0.1,
-      scrollTrigger: {
-        trigger: ".team-text",
-        start: "top 80%"
-      }
-    });
-
-    // Contact section animations
-    gsap.from(".contact-heading", {
-      duration: 0.6,
-      y: 30,
-      autoAlpha: 0,
-      scrollTrigger: {
-        trigger: ".contact-heading",
-        start: "top 80%"
-      }
-    });
-
-    gsap.from(".contact-text", {
-      duration: 0.5,
-      y: 20,
-      autoAlpha: 0,
-      delay: 0.1,
-      scrollTrigger: {
-        trigger: ".contact-text",
-        start: "top 80%"
-      }
-    });
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="font-[family-name:var(--font-aktiv-grotesk)]">
-      {/* Header */}
-      <header className="bg-white/75 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 sm:py-4">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/verdus_split_full.png"
-                alt="Verdus logo"
-                width={120}
-                height={120}
-                className="dark:invert"
-              />
-            </Link>
-            
-            {/* Desktop Navigation */}
-            {/* <nav className="hidden md:flex space-x-8 text-sm font-mono">
-              <a
-                href="#mission"
-                className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
-              >
-                MISSION
-              </a>
-              <a
-                href="#contact"
-                className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium"
-              >
-                CONTACT
-              </a>
-            </nav> */}
-
-            {/* Mobile menu button */}
-            {/* <button
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-[#2F473A] hover:bg-gray-100 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle mobile menu"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button> */}
-          </div>
-
-          {/* Mobile Navigation Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 py-4">
-              <nav className="flex flex-col space-y-4">
-                <a
-                  href="#mission"
-                  className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Mission
-                </a>
-                <a
-                  href="#team"
-                  className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Team
-                </a>
-                <a
-                  href="#contact"
-                  className="text-gray-600 hover:text-[#2F473A] transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </a>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 lg:py-26">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+    <div className="flex min-h-svh flex-col font-[family-name:var(--font-aktiv-grotesk)] text-[#1a1a1a]">
+      <main className="flex flex-1 flex-col">
+        <section className="relative flex min-h-svh flex-1 items-center justify-center overflow-hidden">
           <Image
             src="/dan-meyers-0AgtPoAARtE-unsplash.jpg"
-            alt="Vineyard landscape"
+            alt="Farmland at dusk"
             fill
             priority
             className="object-cover"
           />
-          {/* Dark overlay for text readability */}
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 99%)"
+              background:
+                "linear-gradient(180deg, rgba(15,22,18,0.35) 0%, rgba(15,22,18,0.55) 45%, rgba(15,22,18,0.92) 100%)",
             }}
-          ></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-medium tracking-tight mb-2 text-white leading-tight hero-title">
-              It&apos;s what you<br />can&apos;t see that&apos;s<br />costing you money
-            </h1>
-            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-normal leading-relaxed hero-subtitle mb-8">
-              We make mission-ready hardware and software for farmers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                variant="secondary"
-                className="gap-2 rounded-none bg-[#2F473A] hover:bg-[#223428] text-white border-[#2F473A]"
-              >
-                <a href="https://cal.com/verdus/learn-more" target="_blank" rel="noopener noreferrer">
-                  Get in touch
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14"/>
-                    <path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+          />
 
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-28 sm:px-8">
+            <Link
+              href="/"
+              className="hero-logo relative mb-8 block h-8 w-[110px] sm:mb-10 sm:h-9 sm:w-[120px]"
+            >
+              <Image
+                src="/verdus_split_full.png"
+                alt="Verdus"
+                fill
+                priority
+                className="object-contain object-left brightness-0 invert"
+              />
+            </Link>
 
-      {/* Mission Section */}
-      <section id="mission" className="bg-gray-0 py-16 sm:py-20 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            <div>
-              <div className="mb-4 text-sm font-mono font-medium uppercase tracking-wider">
-                OUR MISSION
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#2F473A] mb-6 sm:mb-8 mission-heading">
-                Making farmers omniscient.
-              </h2>
-            </div>
-            <div className="space-y-6">
-              <p className="text-lg text-gray-900 leading-relaxed mission-text font-normal">
-                For generations, farming has been about hard work, experience, and a little bit of faith. Now there&apos;s something better.
-                <br /><br />We turn every block into clear, high-resolution insight and crew action. Get more work done, in less time.
-              </p>
-
-              <Button
-                asChild
-                variant="secondary"
-                className="gap-2 rounded-none bg-[#2F473A] hover:bg-[#223428] text-white border-[#2F473A] w-full sm:w-auto"
-              >
-                <a
-                  href="https://cal.com/verdus/learn-more"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get in touch
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14"/>
-                    <path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* <section id="analytics" className="bg-gray-50 py-16 sm:py-20 lg:py-10 charts-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-
-            <div className="grid grid-cols-1 gap-6 lg:gap-8">
-              <div className="chart-card">
-                <WeatherChart />
-              </div>
-              <div className="w-4/6 text-right ml-auto">
-                <h2 className="text-2xl sm:text-4xl lg:text-3xl font-medium tracking-tight text-[#2F473A] mt-5 mb-2">
-                  Take action immediately.
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Respond to changes in weather, soil, and crop health with real-time alerts.
-                </p>
-              </div>
-              <div className="chart-card">
-                <NDVIMap />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 lg:gap-8">
-              <div className="w-4/6">
-                <h2 className="text-2xl sm:text-4xl lg:text-3xl font-medium tracking-tight text-[#2F473A] mt-7 mb-2">
-                  Understand your farm.
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Connect all farm data sources in a central hub to get a complete picture of your farm.
-                </p>
-              </div>
-
-              <div className="chart-card">
-                <FarmIncidentsChart />
-              </div>
-              <div>
-              
-              <div className="w-4/6">
-                <h2 className="text-2xl sm:text-4xl lg:text-3xl font-medium tracking-tight text-[#2F473A] mb-2">
-                  Manage your crews—automatically.
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Our AI-powered platform generates actions you can take to make the most of your crews.
-                </p>
-              </div>
-              </div>
-              
-            </div>
-
-          </div>
-
-          <div className="block md:hidden space-y-8">
-            <div className="text-center">
-              <h2 className="text-2xl font-medium tracking-tight text-[#2F473A] mb-4">
-                Understand your farm.
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-6">
-                Connect all farm data sources in a central hub to get a complete picture of your farm.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <h2 className="text-2xl font-medium tracking-tight text-[#2F473A] mb-4">
-                Take action immediately.
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-6">
-                Respond to changes in weather, soil, and crop health with real-time alerts.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <h2 className="text-2xl font-medium tracking-tight text-[#2F473A] mb-4">
-                Manage your crews—automatically.
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed">
-                Our AI-powered platform generates actions you can take to make the most of your crews.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section> */}
-
-
-      {/* Contact Section */}
-      {/* <section id="contact" className="bg-[#2F473A] py-3 sm:py-3 lg:py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-white mb-6 sm:mb-8 w-full lg:w-3/4 contact-heading">
-                See what your farm&apos;s been hiding.
-              </h2>
-            </div>
-            <div className="">
-              <Button
-                asChild
-                variant="secondary"
-                className="gap-2 rounded-none bg-white hover:bg-gray-100 text-[#2F473A] border-white w-full sm:w-auto"
-              >
-                <a
-                  href="https://cal.com/verdus/learn-more"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get in touch
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14"/>
-                    <path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-6 sm:py-8 font-[family-name:var(--font-aktiv-grotesk)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-8">
-              {/* <a
-                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
-                href="#mission"
-              >
-                Mission
-              </a>
+            <p className="hero-line group max-w-2xl text-lg font-normal leading-relaxed tracking-tight text-white/80 sm:text-xl lg:text-2xl">
+              We build hardware and software that help farms{" "}
+              <span className="transition-colors duration-300 group-hover:text-white">
+                produce more saleable output with less labor, energy, water,
+                chemicals, and capital
+              </span>
+              . One of our projects is{" "}
               <a
-                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm sm:text-base"
-                href="#contact"
-              >
-                Contact
-              </a> */}
-
-              <a
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-                href="https://www.linkedin.com/company/verduslabs"
+                href="https://openhectare.org/"
+                className="underline decoration-transparent underline-offset-[0.2em] transition-[color,text-decoration-color] duration-300 group-hover:decoration-white/40 hover:text-white hover:decoration-white/70"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
               >
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="currentColor"
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                OpenHectare
               </a>
+              , turning trusted agricultural research into practical answers for
+              farmers
+            </p>
+
+            <div className="hero-cta mt-9">
               <a
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-                href="mailto:r@verduslabs.com"
-                aria-label="Email"
+                href="https://cal.com/verdus/learn-more"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white/85 px-5 py-3 text-sm font-medium text-[#2F473A] transition-colors hover:bg-white"
               >
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
+                Get in touch
+                <ArrowIcon />
               </a>
-            </div>
-            <div className="text-gray-600 font-mono text-sm sm:text-base text-center md:text-right">
-              © 2025 Verdus Labs. All rights reserved.
             </div>
           </div>
-        </div>
-      </footer>
+
+          <footer className="site-footer absolute inset-x-0 bottom-0 z-10 py-5 sm:py-6">
+            <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row sm:px-8">
+              <div className="flex items-center gap-5">
+                <a
+                  href="https://www.linkedin.com/company/verduslabs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-white/55 transition-colors hover:text-white"
+                >
+                  <LinkedInIcon />
+                </a>
+                <a
+                  href="mailto:info@verduslabs.com"
+                  aria-label="Email"
+                  className="text-white/55 transition-colors hover:text-white"
+                >
+                  <MailIcon />
+                </a>
+              </div>
+              <p className="font-medium text-sm text-white/40">
+                © {new Date().getFullYear()} Verdus Labs
+              </p>
+            </div>
+          </footer>
+        </section>
+      </main>
     </div>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path
+        fillRule="evenodd"
+        d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003ZM4.5 7.25A1.75 1.75 0 0 1 6.25 5.5h11.5A1.75 1.75 0 0 1 19.5 7.25v9.5a1.75 1.75 0 0 1-1.75 1.75H6.25A1.75 1.75 0 0 1 4.5 16.75v-9.5Zm1.75.85 5.4 3.37a.7.7 0 0 0 .7 0l5.4-3.37v-.85H6.25v.85Zm0 1.9v6.75h11.5V10l-5.05 3.15a2.2 2.2 0 0 1-2.4 0L6.25 10Z"
+      />
+    </svg>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

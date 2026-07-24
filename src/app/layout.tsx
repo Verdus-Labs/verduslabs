@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Verdus Labs",
-  description: "Verdus Labs is company that builds hardware and software for vineyards.",
+  description:
+    "We build hardware and software that help farms produce more saleable output with less labor, energy, water, chemicals, and capital.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${aktivGrotesk.variable} antialiased`}
       >
